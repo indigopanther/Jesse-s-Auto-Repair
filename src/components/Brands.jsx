@@ -1,5 +1,4 @@
 import { makes } from '../data/site'
-import BrandLogo from './BrandLogos'
 import Reveal from './Reveal'
 
 export default function Brands({
@@ -18,9 +17,16 @@ export default function Brands({
         </div>
       </div>
       <div className="brandwall">
-        {makes.map((name, i) => (
-          <Reveal key={name} className="brandwall__item" delay={(i % 4) * 50}>
-            <BrandLogo name={name} className="brandwall__logo" />
+        {makes.map((make, i) => (
+          <Reveal key={make.name} className="brandwall__item" delay={(i % 4) * 50}>
+            <img
+              src={make.logo}
+              alt={`${make.name} logo`}
+              className="brandwall__logo"
+              loading="lazy"
+              width="120"
+              height="60"
+            />
           </Reveal>
         ))}
       </div>

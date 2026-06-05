@@ -38,13 +38,25 @@ export const business = {
 }
 
 // Vehicle makes Jesse services. Mobile mechanic works on all makes & models;
-// these are the most common brands across metro Atlanta. Logos render as
-// inline black SVG marks via the BrandLogo component.
+// these are the most common brands across metro Atlanta. Logos are real brand
+// vectors from SVG Repo's car-brand set, rendered in solid black on the site.
 export const makes = [
-  'Toyota', 'Honda', 'Ford', 'Chevrolet',
-  'Nissan', 'Hyundai', 'Kia', 'Jeep',
-  'GMC', 'Dodge', 'Ram', 'Subaru',
-  'Mazda', 'Volkswagen', 'BMW', 'Mercedes-Benz',
+  { name: 'Toyota', logo: 'https://www.svgrepo.com/show/446931/toyota.svg' },
+  { name: 'Honda', logo: 'https://www.svgrepo.com/show/446876/honda.svg' },
+  { name: 'Ford', logo: 'https://www.svgrepo.com/show/446869/ford.svg' },
+  { name: 'Chevrolet', logo: 'https://www.svgrepo.com/show/446947/chevrolet.svg' },
+  { name: 'Nissan', logo: 'https://www.svgrepo.com/show/446904/nissan.svg' },
+  { name: 'Hyundai', logo: 'https://www.svgrepo.com/show/446878/hyundai.svg' },
+  { name: 'Kia', logo: 'https://www.svgrepo.com/show/446883/kia.svg' },
+  { name: 'Jeep', logo: 'https://www.svgrepo.com/show/446880/jeep.svg' },
+  { name: 'GMC', logo: 'https://www.svgrepo.com/show/446875/gmc.svg' },
+  { name: 'Dodge', logo: 'https://www.svgrepo.com/show/446953/dodge.svg' },
+  { name: 'Ram', logo: 'https://www.svgrepo.com/show/446914/ram.svg' },
+  { name: 'Subaru', logo: 'https://www.svgrepo.com/show/446930/subaru.svg' },
+  { name: 'Mazda', logo: 'https://www.svgrepo.com/show/446894/mazda.svg' },
+  { name: 'Volkswagen', logo: 'https://www.svgrepo.com/show/446932/volkswagen.svg' },
+  { name: 'BMW', logo: 'https://www.svgrepo.com/show/446943/bmw.svg' },
+  { name: 'Mercedes-Benz', logo: 'https://www.svgrepo.com/show/446899/mercedes-benz.svg' },
 ]
 
 // Metro-Atlanta counties Jesse serves (from the live site).

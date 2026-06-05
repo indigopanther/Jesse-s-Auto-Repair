@@ -886,12 +886,18 @@ a.contactcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md);
   border-color: var(--steel-200);
 }
 .brandwall__logo {
-  height: 40px;
+  height: 46px;
   width: auto;
-  max-width: 80%;
-  color: var(--navy-900);
+  max-width: 78%;
+  object-fit: contain;
   display: block;
+  /* Force every brand vector to a single solid black, regardless of its
+     original colors, so the wall reads as one clean monochrome set. */
+  filter: brightness(0) saturate(100%);
+  opacity: 0.82;
+  transition: opacity 0.18s var(--ease);
 }
+.brandwall__item:hover .brandwall__logo { opacity: 1; }
 .brandwall__note {
   text-align: center;
   margin: 1.6rem auto 0;
