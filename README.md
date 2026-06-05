@@ -29,10 +29,4 @@ src/
 ## Notes
 
 - **Booking** uses the real ShopMonkey scheduler + quote-request, embedded as
-  iframes on `/appointment` (tabbed). Phone and "Book" CTAs appear in the navbar,
-  a sticky mobile bar, every page header, and the footer.
-- **To update content** (services, hours, blog posts, phone, address), edit
-  `src/data/site.js` only — every page reads from it.
-- `vercel.json` adds SPA rewrites so deep links work when deployed to Vercel.
-- Images load from the business's existing CDN. To self-host, drop files in
-  `public/img/` and point `images` in `src/data/site.js` at `/img/...`.
+  iframes on `/appointment` (tabbed).
