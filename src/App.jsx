@@ -4,17 +4,15 @@ import Footer from './components/Footer'
 import MobileCallBar from './components/MobileCallBar'
 import Home from './pages/Home'
 import Services from './pages/Services'
-import About from './pages/About'
-import Appointment from './pages/Appointment'
-import Blog from './pages/Blog'
+import ServiceArea from './pages/ServiceArea'
+import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
 const ROUTES = {
   '/': Home,
   '/services': Services,
-  '/about': About,
-  '/appointment': Appointment,
-  '/blog': Blog,
+  '/service-area': ServiceArea,
+  '/contact': Contact,
 }
 
 function Routed() {

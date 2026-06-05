@@ -1,5 +1,5 @@
 import { Link } from '../router'
-import { business, services, highlights, images, reviewsWidgetUrl } from '../data/site'
+import { business, services, highlights, steps, images, serviceAreas } from '../data/site'
 import Icon from '../components/Icons'
 import Reveal from '../components/Reveal'
 import CtaBand from '../components/CtaBand'
@@ -12,55 +12,44 @@ export default function Home() {
         <div className="hero__bg" aria-hidden="true" />
         <div className="hero__inner">
           <div className="hero__copy">
-            <span className="eyebrow">St. Louis · Since 1986 · BBB A+</span>
+            <span className="eyebrow">Mobile Mechanic | Atlanta, GA</span>
             <h1>
-              Quality Assured <span className="accent">Auto Repair</span>
+              You Drive It, <span className="accent">We Fix It.</span>
             </h1>
             <p className="hero__lead">
-              Honest, transparent service on Toyota, Nissan, Honda and GM vehicles —
-              backed by 40 years of experience and a 24-month / 24,000-mile warranty
-              on most repairs.
+              A trusted mobile mechanic with {business.yearsExperience}+ years of experience, serving
+              metro Atlanta. From brakes and tune-ups to water pumps and alternators, I come to your
+              home or work and get the job done. Quick, reliable and affordable.
             </p>
             <div className="hero__actions">
-              <Link to="/appointment" className="btn btn--primary btn--lg">
-                <Icon name="calendar" size={20} /> Book appointment
-              </Link>
-              <a href={business.phoneHref} className="btn btn--ghost btn--lg">
-                <Icon name="phone" size={20} /> {business.phoneDisplay}
+              <a href={business.phoneHref} className="btn btn--primary btn--lg">
+                <Icon name="phone" size={20} /> Call {business.phoneDisplay}
+              </a>
+              <a href={business.smsHref} className="btn btn--ghost btn--lg">
+                <Icon name="message" size={20} /> Text Jesse
               </a>
             </div>
             <p className="hero__sub">
-              <Icon name="clock" size={16} /> {business.hoursLine} · By appointment only
+              <Icon name="clock" size={16} /> {business.hoursLine}
             </p>
           </div>
           <div className="hero__card">
-            <img src={images.logo} alt={`${business.name} logo`} />
+            <img src={images.hero} alt="Jesse working on a vehicle" className="hero__photo" />
             <div className="hero__cardrow">
-              <Icon name="pin" size={18} />
-              <a href={business.mapUrl} target="_blank" rel="noopener noreferrer">
-                {business.address}
-              </a>
-            </div>
-            <div className="hero__cardrow">
-              <Icon name="shield" size={18} />
-              <span>Licensed Missouri inspection station</span>
+              <Icon name="car" size={18} />
+              <span>Mobile service - we come to you</span>
             </div>
             <div className="hero__cardrow">
               <Icon name="check" size={18} />
-              <span>{business.warranty}</span>
+              <span>{business.yearsExperience}+ years, work guaranteed</span>
+            </div>
+            <div className="hero__cardrow">
+              <Icon name="dollar" size={18} />
+              <span>Honest quotes, all cards accepted</span>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Construction / appointment notice */}
-      <div className="notice">
-        <Icon name="pin" size={18} />
-        <p>
-          <strong>Please excuse the construction</strong> — follow the detour signs to reach us.
-          Services are <strong>by appointment only</strong>; no walk-ins, please.
-        </p>
-      </div>
 
       {/* Stat highlights */}
       <section className="stats">
@@ -76,8 +65,8 @@ export default function Home() {
       <section className="section">
         <div className="section__head">
           <div>
-            <span className="eyebrow">What we do</span>
-            <h2>Services we offer</h2>
+            <span className="eyebrow">What I fix</span>
+            <h2>Services</h2>
           </div>
           <Link to="/services" className="link-arrow">
             All services <Icon name="arrow" size={18} />
@@ -96,91 +85,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why us + photos */}
+      {/* How it works */}
       <section className="section section--alt">
-        <div className="split">
-          <Reveal className="split__media">
-            <img src={images.shop1} alt="Inside Jesse's Automotive" className="split__img" />
-            <img src={images.shop2} alt="Jesse's Automotive shop" className="split__img split__img--offset" />
-          </Reveal>
-          <Reveal className="split__copy" delay={80}>
-            <span className="eyebrow">Why drivers trust us</span>
-            <h2>A neighborhood shop that stands by its work</h2>
-            <p>
-              The family started Jesse's back in 1986, and we have worked on the same Hillsdale
-              corner since 1995. The commitment hasn't changed: honest, transparent work, and a
-              clear explanation of what your car needs (and what it will cost) before we begin.
-            </p>
-            <ul className="ticklist">
-              <li><Icon name="check" size={18} /> Clear, up-front communication on every job</li>
-              <li><Icon name="check" size={18} /> {business.warranty}</li>
-              <li><Icon name="check" size={18} /> We supply quality parts for compatibility &amp; warranty</li>
-              <li><Icon name="check" size={18} /> Rooted in the St. Louis community since {business.founded}</li>
-            </ul>
-            <Link to="/about" className="link-arrow">Our story <Icon name="arrow" size={18} /></Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Makes we service */}
-      <section className="section">
         <div className="section__head section__head--center">
           <div>
-            <span className="eyebrow">Makes we specialize in</span>
-            <h2>We work on Toyota, Nissan, Honda &amp; GM</h2>
-            <p className="section__sub">
-              Plus engine diagnostics on most vehicles from 1979 to the current model year — just ask.
-            </p>
+            <span className="eyebrow">Simple and straightforward</span>
+            <h2>How it works</h2>
           </div>
         </div>
-        <div className="makes">
-          {business.makes.map((m) => (
-            <span key={m} className="make-chip">{m}</span>
+        <div className="grid grid--3">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} className="step" delay={i * 80}>
+              <span className="step__num">{s.n}</span>
+              <span className="step__icon"><Icon name={s.icon} size={24} /></span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="section section--alt">
+      {/* Recent work gallery */}
+      <section className="section">
         <div className="section__head section__head--center">
           <div>
-            <span className="eyebrow">In their words</span>
-            <h2>What our customers have to say</h2>
+            <span className="eyebrow">On the job</span>
+            <h2>Recent work</h2>
+            <p className="section__sub">A look at jobs done right, out in the field across metro Atlanta.</p>
           </div>
         </div>
-        <div className="reviews">
-          <iframe
-            title="Customer reviews"
-            src={reviewsWidgetUrl}
-            className="reviews__frame"
-            loading="lazy"
-          />
-          <a href={business.bbbUrl} target="_blank" rel="noopener noreferrer" className="reviews__bbb">
-            <img src={business.bbbSeal} alt="BBB A+ Accredited Business" />
-          </a>
+        <div className="gallery">
+          {images.gallery.map((src, i) => (
+            <Reveal key={src} className="gallery__item" delay={(i % 5) * 50}>
+              <img src={src} alt={`Jesse's Auto Repair work ${i + 1}`} loading="lazy" />
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      {/* Location */}
-      <section className="section">
+      {/* Service area teaser */}
+      <section className="section section--alt">
         <div className="split split--reverse">
           <Reveal className="split__copy">
-            <span className="eyebrow">Find us</span>
-            <h2>Stop by the shop</h2>
-            <div className="infoline"><Icon name="pin" size={20} /><a href={business.mapUrl} target="_blank" rel="noopener noreferrer">{business.address}</a></div>
-            <div className="infoline"><Icon name="phone" size={20} /><a href={business.phoneHref}>{business.phoneDisplay}</a></div>
-            <div className="infoline"><Icon name="clock" size={20} /><span>{business.hoursLine}</span></div>
-            <p className="section__sub">Closed Saturday &amp; Sunday. Appointments are required.</p>
-            <a href={business.mapUrl} target="_blank" rel="noopener noreferrer" className="btn btn--ghost">
-              <Icon name="pin" size={18} /> Get directions
-            </a>
+            <span className="eyebrow">Where I work</span>
+            <h2>Serving metro Atlanta</h2>
+            <p>
+              Mobile across the Atlanta metro, including but not limited to the counties below. Not
+              sure if you are in range? Just call or text and ask - chances are I can get to you.
+            </p>
+            <div className="makes">
+              {serviceAreas.map((a) => (
+                <span key={a} className="make-chip">{a}</span>
+              ))}
+            </div>
+            <Link to="/service-area" className="link-arrow">See the full area <Icon name="arrow" size={18} /></Link>
           </Reveal>
           <Reveal className="split__map" delay={80}>
             <iframe
-              title="Map to Jesse's Automotive"
+              title="Atlanta service area"
               className="mapframe"
               loading="lazy"
-              src="https://www.google.com/maps?q=2124+Darver+Lane,+St.+Louis,+MO+63121&output=embed"
+              src="https://www.google.com/maps?q=Atlanta,+GA&z=9&output=embed"
             />
           </Reveal>
         </div>

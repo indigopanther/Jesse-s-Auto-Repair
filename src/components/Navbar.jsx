@@ -6,9 +6,8 @@ import Icon from './Icons'
 const NAV = [
   { to: '/', label: 'Home' },
   { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/appointment', label: 'Appointment' },
+  { to: '/service-area', label: 'Service Area' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -37,8 +36,8 @@ export default function Navbar() {
         <Link to="/" className="nav__brand" onClick={() => setOpen(false)}>
           <img src={images.logo} alt={`${business.name} logo`} className="nav__logo" />
           <span className="nav__brandtext">
-            <strong>Jesse's Automotive</strong>
-            <em>{business.tagline}</em>
+            <strong>Jesse's Auto Repair</strong>
+            <em>{business.role} | Atlanta, GA</em>
           </span>
         </Link>
 
@@ -53,15 +52,10 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Link to="/appointment" className="btn btn--primary nav__cta" onClick={() => setOpen(false)}>
-            <Icon name="calendar" size={18} /> Book appointment
-          </Link>
+          <a href={business.phoneHref} className="btn btn--primary nav__cta" onClick={() => setOpen(false)}>
+            <Icon name="phone" size={18} /> {business.phoneDisplay}
+          </a>
         </nav>
-
-        <a href={business.phoneHref} className="nav__call">
-          <Icon name="phone" size={18} />
-          <span>{business.phoneDisplay}</span>
-        </a>
 
         <button
           className={`nav__burger ${open ? 'is-open' : ''}`}
