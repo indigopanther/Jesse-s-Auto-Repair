@@ -109,26 +109,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Recent work gallery */}
-      <section className="section section--alt">
-        <div className="section__head section__head--center">
-          <div>
-            <span className="eyebrow">On the job</span>
-            <h2>Recent work</h2>
-            <p className="section__sub">A look at jobs done right, out in the field across metro Atlanta.</p>
-          </div>
-        </div>
-        <div className="gallery">
-          {images.gallery.map((src, i) => (
-            <Reveal key={src} className="gallery__item" delay={(i % 5) * 50}>
-              <img src={src} alt={`Jesse's Auto Repair work ${i + 1}`} loading="lazy" />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* Service area teaser */}
-      <section className="section">
+      <section className="section section--alt">
         <div className="split split--reverse">
           <Reveal className="split__copy">
             <span className="eyebrow">Where I work</span>
