@@ -37,6 +37,16 @@ export const business = {
   travel: 'Travel runs $35-$50 depending on your location. Every quote is travel + labor, up front.',
 }
 
+// Vehicle makes Jesse services. Mobile mechanic works on all makes & models;
+// these are the most common brands across metro Atlanta. Logos render as
+// inline black SVG marks via the BrandLogo component.
+export const makes = [
+  'Toyota', 'Honda', 'Ford', 'Chevrolet',
+  'Nissan', 'Hyundai', 'Kia', 'Jeep',
+  'GMC', 'Dodge', 'Ram', 'Subaru',
+  'Mazda', 'Volkswagen', 'BMW', 'Mercedes-Benz',
+]
+
 // Metro-Atlanta counties Jesse serves (from the live site).
 export const serviceAreas = [
   'Cobb', 'West Cobb', 'Fulton', 'DeKalb',

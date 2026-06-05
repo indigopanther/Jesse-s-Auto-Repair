@@ -859,3 +859,65 @@ a.contactcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md);
   .qform__row { grid-template-columns: 1fr; }
   .contact__cards { grid-template-columns: 1fr; }
 }
+
+/* ----- Brand / makes logo wall ------------------------------------------- */
+.brandwall {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.brandwall__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: 1.2rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.brandwall__item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--steel-200);
+}
+.brandwall__logo {
+  height: 40px;
+  width: auto;
+  max-width: 80%;
+  color: var(--navy-900);
+  display: block;
+}
+.brandwall__note {
+  text-align: center;
+  margin: 1.6rem auto 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ----- Map note + alignment helpers -------------------------------------- */
+.split__map { display: flex; flex-direction: column; gap: 0.7rem; }
+.split__map .mapframe { height: auto; }
+.mapnote {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.mapnote svg { color: var(--red-600); flex-shrink: 0; }
+.makes--left { justify-content: flex-start; }
+
+@media (max-width: 760px) {
+  .brandwall { grid-template-columns: repeat(3, 1fr); }
+  .brandwall__item { min-height: 80px; padding: 1rem 0.7rem; }
+  .brandwall__logo { height: 34px; }
+}
+@media (max-width: 440px) {
+  .brandwall { grid-template-columns: repeat(2, 1fr); }
+}

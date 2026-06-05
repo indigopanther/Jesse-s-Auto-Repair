@@ -31,7 +31,7 @@ export default function ServiceArea() {
               Including but not limited to the counties below. If you do not see yours, reach out
               anyway - I cover a wide stretch of the metro and travel is quoted up front.
             </p>
-            <div className="makes">
+            <div className="makes makes--left">
               {serviceAreas.map((a) => (
                 <span key={a} className="make-chip">{a}</span>
               ))}
@@ -40,11 +40,13 @@ export default function ServiceArea() {
           </Reveal>
           <Reveal className="split__map" delay={80}>
             <iframe
-              title="Atlanta metro service area"
+              title="Jesse's Auto Repair metro-Atlanta service area"
               className="mapframe mapframe--tall"
               loading="lazy"
-              src="https://www.google.com/maps?q=Atlanta+metropolitan+area,+GA&z=9&output=embed"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Atlanta+metropolitan+area,+GA&ll=33.74,-84.42&z=9&output=embed"
             />
+            <p className="mapnote"><Icon name="car" size={15} /> Fully mobile — no storefront. Travel is quoted up front.</p>
           </Reveal>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { business, services } from '../data/site'
 import Icon from '../components/Icons'
 import Reveal from '../components/Reveal'
 import CtaBand from '../components/CtaBand'
+import Brands from '../components/Brands'
 
 export default function Services() {
   return (
@@ -64,6 +65,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <Brands alt={false} />
 
       <CtaBand
         title="Not sure what your car needs?"

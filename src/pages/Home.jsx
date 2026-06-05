@@ -3,6 +3,7 @@ import { business, services, highlights, steps, images, serviceAreas } from '../
 import Icon from '../components/Icons'
 import Reveal from '../components/Reveal'
 import CtaBand from '../components/CtaBand'
+import Brands from '../components/Brands'
 
 export default function Home() {
   return (
@@ -85,8 +86,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Makes we work on */}
+      <Brands />
+
       {/* How it works */}
-      <section className="section section--alt">
+      <section className="section">
         <div className="section__head section__head--center">
           <div>
             <span className="eyebrow">Simple and straightforward</span>
@@ -106,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Recent work gallery */}
-      <section className="section">
+      <section className="section section--alt">
         <div className="section__head section__head--center">
           <div>
             <span className="eyebrow">On the job</span>
@@ -124,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* Service area teaser */}
-      <section className="section section--alt">
+      <section className="section">
         <div className="split split--reverse">
           <Reveal className="split__copy">
             <span className="eyebrow">Where I work</span>
@@ -133,7 +137,7 @@ export default function Home() {
               Mobile across the Atlanta metro, including but not limited to the counties below. Not
               sure if you are in range? Just call or text and ask - chances are I can get to you.
             </p>
-            <div className="makes">
+            <div className="makes makes--left">
               {serviceAreas.map((a) => (
                 <span key={a} className="make-chip">{a}</span>
               ))}
@@ -142,11 +146,13 @@ export default function Home() {
           </Reveal>
           <Reveal className="split__map" delay={80}>
             <iframe
-              title="Atlanta service area"
+              title="Jesse's Auto Repair metro-Atlanta service area"
               className="mapframe"
               loading="lazy"
-              src="https://www.google.com/maps?q=Atlanta,+GA&z=9&output=embed"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Atlanta+metropolitan+area,+GA&ll=33.74,-84.42&z=9&output=embed"
             />
+            <p className="mapnote"><Icon name="car" size={15} /> Mobile service — Jesse comes to you across the metro.</p>
           </Reveal>
         </div>
       </section>
