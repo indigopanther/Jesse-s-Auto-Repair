@@ -1,8 +1,18 @@
-// Tiny dependency-free client-side router (clean URLs + back/forward support).
+// Tiny dependency-free client-side router (clean URLs + back/forward + #anchors).
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 
 const RouterContext = createContext(null)
+
+function scrollToHash(hash) {
+  if (!hash) return false
+  const el = document.getElementById(hash)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    return true
+  }
+  return false
+}
 
 export function RouterProvider({ children }) {
   const [path, setPath] = useState(() => window.location.pathname || '/')
@@ -13,14 +23,29 @@ export function RouterProvider({ children }) {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
+  // After a route (and its DOM) renders, honor any #hash target in the URL.
+  useEffect(() => {
+    const hash = decodeURIComponent(window.location.hash.replace('#', ''))
+    if (hash) requestAnimationFrame(() => scrollToHash(hash))
+  }, [path])
+
   const navigate = useCallback((to) => {
-    if (to === window.location.pathname) {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      return
-    }
+    const hashIndex = to.indexOf('#')
+    const pathname = hashIndex === -1 ? to : to.slice(0, hashIndex)
+    const hash = hashIndex === -1 ? '' : to.slice(hashIndex + 1)
+    const target = pathname || window.location.pathname
+    const samePage = target === window.location.pathname
+
     window.history.pushState({}, '', to)
-    setPath(to)
-    window.scrollTo({ top: 0, behavior: 'auto' })
+    setPath(target)
+
+    if (hash) {
+      requestAnimationFrame(() => {
+        if (!scrollToHash(hash)) window.scrollTo({ top: 0 })
+      })
+    } else {
+      window.scrollTo({ top: 0, behavior: samePage ? 'smooth' : 'auto' })
+    }
   }, [])
 
   return (
@@ -61,11 +86,12 @@ export function Link({ to, className, children, onClick, ...rest }) {
     navigate(to)
   }
 
+  const current = path === to || (to.includes('#') && to.slice(0, to.indexOf('#')) === path)
   return (
     <a
       href={to}
       className={className}
-      aria-current={path === to ? 'page' : undefined}
+      aria-current={current ? 'page' : undefined}
       onClick={handle}
       {...rest}
     >

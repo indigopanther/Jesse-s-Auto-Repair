@@ -17,7 +17,7 @@ export default function Services() {
           </p>
           <div className="pagehead__actions">
             <Link to="/appointment" className="btn btn--primary">
-              <Icon name="calendar" size={18} /> Book an appointment
+              <Icon name="calendar" size={18} /> Book appointment
             </Link>
             <a href={business.phoneHref} className="btn btn--ghost">
               <Icon name="phone" size={18} /> {business.phoneDisplay}

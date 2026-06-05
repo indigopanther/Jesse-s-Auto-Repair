@@ -698,3 +698,48 @@ iframe { border: 0; }
   * { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ============================================================================
+   UX polish: accessibility, anchor offsets, booking escape hatch, desktop call
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--steel-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 100;
+  background: var(--navy-900);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  transform: translateY(-150%);
+  transition: transform 0.18s var(--ease);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* Offset in-page anchor targets so the sticky navbar doesn't cover them. */
+.service { scroll-margin-top: 96px; }
+
+/* Booking page: a reliable, always-visible way out to the full-screen tool. */
+.bookbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.2rem;
+}
+.bookbar__hint { color: var(--muted); font-size: 0.92rem; }
+.bookbar__btn { white-space: nowrap; }
+
+/* Show the click-to-call number in the navbar on desktop (auto shop = call first). */
+@media (min-width: 992px) {
+  .nav__call { display: inline-flex; }
+}

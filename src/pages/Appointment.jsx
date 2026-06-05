@@ -13,7 +13,7 @@ export default function Appointment() {
           <span className="eyebrow">Let's get you scheduled</span>
           <h1>Book an appointment</h1>
           <p>
-            Pick a date and time that works for you right here — no phone tag required. Prefer to
+            Pick a date and time that works for you right here, no phone tag required. Prefer to
             describe the problem first? Switch to <strong>Request a quote</strong> and tell us what's
             going on. Service is by appointment only; no walk-ins, please.
           </p>
@@ -41,6 +41,15 @@ export default function Appointment() {
           </button>
         </div>
 
+        <div className="bookbar">
+          <span className="bookbar__hint">
+            The {tab === 'book' ? 'calendar' : 'quote form'} loads below and can take a moment.
+          </span>
+          <a href={src} target="_blank" rel="noopener noreferrer" className="btn btn--ghost bookbar__btn">
+            <Icon name="arrow" size={18} /> Open full screen
+          </a>
+        </div>
+
         <div className="bookframe">
           <iframe
             key={tab}
@@ -52,9 +61,9 @@ export default function Appointment() {
         </div>
 
         <p className="bookframe__fallback">
-          Having trouble with the form?{' '}
+          Form not loading?{' '}
           <a href={src} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>{' '}
-          or call us at <a href={business.phoneHref}>{business.phoneDisplay}</a>.
+          or call <a href={business.phoneHref}>{business.phoneDisplay}</a> and we'll book you in.
         </p>
       </section>
 
@@ -64,13 +73,13 @@ export default function Appointment() {
             <Icon name="clock" size={24} />
             <h3>Hours</h3>
             <p>{business.hoursLine}</p>
-            <p className="muted">Closed weekends · appointment only</p>
+            <p className="muted">Closed weekends. Appointment only.</p>
           </div>
           <div className="infocard">
             <Icon name="pin" size={24} />
             <h3>Location</h3>
             <a href={business.mapUrl} target="_blank" rel="noopener noreferrer">{business.address}</a>
-            <p className="muted">Follow the detour signs — please excuse our construction.</p>
+            <p className="muted">Follow the detour signs - please excuse our construction.</p>
           </div>
           <div className="infocard">
             <Icon name="phone" size={24} />

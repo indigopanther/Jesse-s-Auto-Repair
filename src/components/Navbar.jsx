@@ -25,6 +25,10 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
   return (
@@ -38,7 +42,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className={`nav__links ${open ? 'is-open' : ''}`}>
+        <nav id="primary-nav" className={`nav__links ${open ? 'is-open' : ''}`}>
           {NAV.map((item) => (
             <Link
               key={item.to}
@@ -50,7 +54,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link to="/appointment" className="btn btn--primary nav__cta" onClick={() => setOpen(false)}>
-            <Icon name="calendar" size={18} /> Book now
+            <Icon name="calendar" size={18} /> Book appointment
           </Link>
         </nav>
 
@@ -62,8 +66,9 @@ export default function Navbar() {
         <button
           className={`nav__burger ${open ? 'is-open' : ''}`}
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="primary-nav"
         >
           <span /><span /><span />
         </button>

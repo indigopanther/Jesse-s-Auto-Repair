@@ -15,7 +15,7 @@ export default function CtaBand({
         </div>
         <div className="ctaband__actions">
           <Link to="/appointment" className="btn btn--primary btn--lg">
-            <Icon name="calendar" size={20} /> Book an appointment
+            <Icon name="calendar" size={20} /> Book appointment
           </Link>
           <a href={business.phoneHref} className="btn btn--ghost btn--lg">
             <Icon name="phone" size={20} /> {business.phoneDisplay}

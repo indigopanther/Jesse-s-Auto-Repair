@@ -23,7 +23,7 @@ export default function Home() {
             </p>
             <div className="hero__actions">
               <Link to="/appointment" className="btn btn--primary btn--lg">
-                <Icon name="calendar" size={20} /> Book an appointment
+                <Icon name="calendar" size={20} /> Book appointment
               </Link>
               <a href={business.phoneHref} className="btn btn--ghost btn--lg">
                 <Icon name="phone" size={20} /> {business.phoneDisplay}
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="grid grid--3">
           {services.slice(0, 6).map((s, i) => (
             <Reveal key={s.id} delay={(i % 3) * 70}>
-              <Link to="/services" className="scard">
+              <Link to={`/services#${s.id}`} className="scard">
                 <span className="scard__icon"><Icon name={s.icon} size={26} /></span>
                 <h3>{s.title}</h3>
                 <p>{s.short}</p>
@@ -107,10 +107,9 @@ export default function Home() {
             <span className="eyebrow">Why drivers trust us</span>
             <h2>A neighborhood shop that stands by its work</h2>
             <p>
-              Our auto repair journey began with a passion for automobiles, and our commitment to
-              exceptional service has only grown. We believe in honesty, transparency and quality
-              workmanship on every repair — and we make sure you understand the work and the costs
-              before we begin.
+              The family started Jesse's back in 1986, and we have worked on the same Hillsdale
+              corner since 1995. The commitment hasn't changed: honest, transparent work, and a
+              clear explanation of what your car needs (and what it will cost) before we begin.
             </p>
             <ul className="ticklist">
               <li><Icon name="check" size={18} /> Clear, up-front communication on every job</li>

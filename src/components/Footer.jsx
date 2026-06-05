@@ -56,7 +56,7 @@ export default function Footer() {
             </a>
           </div>
           <Link to="/appointment" className="btn btn--primary footer__cta">
-            <Icon name="calendar" size={18} /> Schedule service
+            <Icon name="calendar" size={18} /> Book appointment
           </Link>
         </div>
       </div>

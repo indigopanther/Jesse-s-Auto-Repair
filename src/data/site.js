@@ -161,5 +161,5 @@ export const highlights = [
   { stat: '40+', label: 'Years serving St. Louis' },
   { stat: 'A+', label: 'BBB accredited rating' },
   { stat: '24/24', label: 'Month / mile warranty' },
-  { stat: '1979→', label: 'Diagnostics on most model years' },
+  { stat: '1979+', label: 'Model years we can diagnose' },
 ]

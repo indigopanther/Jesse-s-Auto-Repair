@@ -22,8 +22,9 @@ function Routed() {
   const Page = ROUTES[path] || NotFound
   return (
     <>
+      <a href="#main" className="skip-link">Skip to content</a>
       <Navbar />
-      <main className="page">
+      <main id="main" className="page">
         <Page />
       </main>
       <Footer />
